@@ -11,7 +11,7 @@ import streamlit as st
 #If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
 #forums](https://discuss.streamlit.io).
 #In the meantime, below is an example of what you can do with just a few lines of code:
-THEMES = ["light","dark","green","blue",]
+st.set_page_config(layout="wide")
 
 st.title("u20431644 Assignment 2")
 
