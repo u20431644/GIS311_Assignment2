@@ -13,7 +13,7 @@ import streamlit as st
 #In the meantime, below is an example of what you can do with just a few lines of code:
 st.set_page_config(layout="wide")
 
-st.title("u20431644 Assignment 2")
+st.title("GIS311 Assignment 2")
 
 st.header("Spiral points placeholder")
 
