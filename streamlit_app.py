@@ -15,7 +15,7 @@ def haversine(source_coords, dest_coords):
 
 st.set_page_config(layout="wide")
 st.title("GIS311 Assignment 2")
-merged_df = pd.read_csv('data/merged_data.csv', low_memory=False)
+merged_df = pd.read_csv('Data/merged_data.csv', low_memory=False)
 airports_df = merged_df[['Source airport', 'Destination airport', 'Latitude_x', 'Longitude_x', 'Latitude_y', 'Longitude_y', 'Name_x', 'Name_y']]
 
 st.sidebar.title('Select Airports')
