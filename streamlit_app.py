@@ -75,7 +75,7 @@ def createmap():
                 round(haversine(source_coords, dest_coords), 2)) + " km")
 
             # calculate the estimated flying time:
-            total_seconds = int((haversine(source_coords, dest_coords) / 850) * 3600 * 1.6)
+            total_seconds = int((haversine(source_coords, dest_coords) / 850) * 3600 * 1.3)
             hours = total_seconds // 3600
             minutes = (total_seconds % 3600) // 60
             st.sidebar.info("Estimated flight time at 850 km/h is: " + str(hours) + "h:" + str(minutes) + "m")
