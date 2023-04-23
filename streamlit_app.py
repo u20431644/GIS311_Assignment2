@@ -20,6 +20,8 @@ st.set_page_config(layout="wide")
 st.title("GIS311 Assignment 2")
 
 merged_df = pd.read_csv('Data/merged_data.csv', low_memory=False)
+airlines = pd.read_csv('Data/airlines.dat', header=None, names=['Airline ID', 'Name', 'Alias', 'IATA', 'ICAO',
+                                                                    'Callsign', 'Country', 'Active'])
 
 
 def createmap():
@@ -135,6 +137,19 @@ def create_chart_routes():
     # Display chart in Streamlit
     st.altair_chart(chart, use_container_width=True)
 
+def create_chart_airlines():
+    airline_per_country = airlines.groupby('Country').size().reset_index(name='counts')
+    chart = alt.Chart(airline_per_country).mark_bar().encode(
+        x=alt.X('Country:N', axis=alt.Axis(title='Country')),
+        y=alt.Y('counts:Q', axis=alt.Axis(title='Number of Airlines'))
+    ).properties(
+        title='Number of Airlines per Country',
+        width=1400,
+        height=500
+    )
+
+    st.altair_chart(chart, use_container_width=True)
+
 
 def create_metrics():
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -149,3 +164,4 @@ create_metrics()
 createmap()
 create_chart_airports()
 create_chart_routes()
+create_chart_airlines()
