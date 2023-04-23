@@ -78,7 +78,7 @@ def createmap():
             total_seconds = int((haversine(source_coords, dest_coords) / 850) * 3600 * 1.1)
             hours = total_seconds // 3600
             minutes = (total_seconds % 3600) // 60
-            st.sidebar.info("Estimated flight time at 850 km/h is: " + str(hours) + "h:" + str(minutes) + "m")
+            st.sidebar.info("Estimated time in the air at 850 km/h is: " + str(hours) + "h:" + str(minutes) + "m")
 
             # calc time zone diff
 
