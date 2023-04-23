@@ -82,8 +82,8 @@ def createmap():
 
             # calc time zone diff
 
-            st.sidebar.metric("Time Zone Departing Airport", "GMT {:+d}".format(int(source_airport[2])), delta_color="inverse")
-            st.sidebar.metric("Time Zone Arrival Airport", "GMT {:+d}".format(int(destination_airports[0][2])),
+            st.sidebar.metric("Time Zone Departing Airport", "GMT: {:+d}".format(int(source_airport[2])), delta_color="inverse")
+            st.sidebar.metric("Time Zone Arrival Airport", "GMT: {:+d}".format(int(destination_airports[0][2])),
                               delta_color="inverse")
             st.sidebar.metric("Time difference between source and destination",
                               str(abs(int(destination_airports[0][2])-int(source_airport[2])))+ " hours",
