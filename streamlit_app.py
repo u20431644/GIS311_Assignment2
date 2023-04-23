@@ -17,8 +17,8 @@ def haversine(source_coords, dest_coords):
 
 
 st.set_page_config(layout="wide")
-st.title("GIS311 Assignment 2")
-
+st.title("Global Airline industry statistics per country:")
+st.caption("u20458704 & u20431644")
 merged_df = pd.read_csv('Data/merged_data.csv', low_memory=False)
 airlines = pd.read_csv('Data/airlines.dat', header=None, names=['Airline ID', 'Name', 'Alias', 'IATA', 'ICAO',
                                                                     'Callsign', 'Country', 'Active'])
