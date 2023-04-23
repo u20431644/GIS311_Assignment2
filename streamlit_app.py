@@ -52,7 +52,7 @@ def createmap():
                 folium.Marker(location=dest_coords, tooltip=row['Destination airport']).add_to(fg)
                 folium.PolyLine(locations=[source_coords, dest_coords], color='red', tooltip=str(round(haversine(source_coords, dest_coords),2))+"km", smooth_factor=0.5).add_to(fg)
 
-            st.info("Distance between: " + source_airport[0] + " and "+destination_airports[0][0] +" is: " + str(round(haversine(source_coords, dest_coords),2)) + " km")
+            st.info("Distance between: " + source_airport[1] +" ["+source_airport[0]+"] "+ " and "+destination_airports[0][0]+" ["+destination_airports[0][1] +" ]"+" is: " + str(round(haversine(source_coords, dest_coords),2)) + " km")
         else:
             st.sidebar.warning("No routes found for the selected source and destination airports.")
 
