@@ -16,8 +16,11 @@ def haversine(source_coords, dest_coords):
 
 st.set_page_config(layout="wide")
 st.title("GIS311 Assignment 2")
+
+merged_df = pd.read_csv('Data/merged_data.csv', low_memory=False)
+
 def createmap():
-    merged_df = pd.read_csv('Data/merged_data.csv', low_memory=False)
+
     airports_df = merged_df[['Source airport', 'Destination airport', 'Latitude_x', 'Longitude_x', 'Latitude_y', 'Longitude_y', 'Name_x', 'Name_y']]
 
     st.sidebar.title('Select Airports')
@@ -55,7 +58,7 @@ def createmap():
 
     folium_static(folium_map, width=1400, height=600)
 
-def create_chart():
+def create_chart_airports():
     def load_data():
         airports_data = pd.read_csv('Data/airports.dat', header=None)
         airports_data.columns = ['Airport ID', 'Name', 'City', 'Country', 'IATA', 'ICAO', 'Latitude', 'Longitude',
@@ -80,5 +83,24 @@ def create_chart():
     # Display chart in Streamlit
     st.altair_chart(chart, use_container_width=True)
 
+
+def create_chart_routes():
+    #merged_data = pd.read_csv('Data/merged_data.csv', low_memory=False)
+    country_count_route = merged_df.groupby('Country_x').size().reset_index(name='counts')
+
+    # Create Altair chart
+    chart = alt.Chart(country_count_route).mark_bar().encode(
+        x=alt.X('Country_x:N', axis=alt.Axis(title='Country')),
+        y=alt.Y('counts:Q', axis=alt.Axis(title='Number of Routes'))
+    ).properties(
+        title='Number of Routes per Departing Country',
+        width=1400,
+        height=500
+    )
+
+    # Display chart in Streamlit
+    st.altair_chart(chart, use_container_width=True)
+
 createmap()
-create_chart()
+create_chart_airports()
+create_chart_routes()
