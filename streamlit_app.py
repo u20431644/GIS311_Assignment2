@@ -52,7 +52,7 @@ def createmap():
                 folium.Marker(location=dest_coords, tooltip=row['Destination airport']).add_to(fg)
                 folium.PolyLine(locations=[source_coords, dest_coords], color='red', tooltip=str(round(haversine(source_coords, dest_coords),2))+"km", smooth_factor=0.5).add_to(fg)
 
-            st.info("Distance between: " + source_airport[1] +" ["+source_airport[0]+"] "+ " and "+destination_airports[0][0]+" ["+destination_airports[0][1] +"]"+" is: " + str(round(haversine(source_coords, dest_coords),2)) + " km")
+            st.info("Distance between: " + source_airport[1] +" ["+source_airport[0]+"] "+ " and "+destination_airports[0][0]+" ["+destination_airports[0][1] +" ]"+" is: " + str(round(haversine(source_coords, dest_coords),2)) + " km")
         else:
             st.sidebar.warning("No routes found for the selected source and destination airports.")
 
@@ -101,6 +101,17 @@ def create_chart_routes():
     # Display chart in Streamlit
     st.altair_chart(chart, use_container_width=True)
 
+
+def create_metrics():
+    col1, col2, col3, col4, col5 = st.columns(5)
+    col1.metric("Total active airlines", "1253", "4907 inactive")
+    col2.metric("Total airports", "7698", "29.50 per country on average")
+    col3.metric("Total countries", "261", "197 recognised by the UN")
+    col4.metric("Total airplanes", "246", "0.20 per airline on average")
+    col5.metric("Total routes", "67663", "Enough to keep one occupied!")
+
+
+create_metrics()
 createmap()
 create_chart_airports()
 create_chart_routes()
