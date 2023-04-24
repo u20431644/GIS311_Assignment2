@@ -18,6 +18,7 @@ def haversine(source_coords, dest_coords):
 
 
 # set the stramlit page layout to always be wide, apply a title, caption and then read the data
+st.set_page_config(page_icon="https://icons8.com/icon/62228/airplane")
 st.set_page_config(layout="wide")
 st.title("Global Airline industry statistics per country:")
 st.caption("u20458704 - Magdelie Purchase & u20431644 - Matthew Attree")
