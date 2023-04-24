@@ -24,3 +24,7 @@ After the final version in our development (local environment) was stable, we th
 Each person contributed equally to the assignment!
 Magdelie contributed to the programming, specifically the charts and metrics of the application, as well as the overall design of the program.
 Matthew contributed to the programming, specifically the map using folium and the routing on the map, as well as the GitHub repository.
+
+#References
+Johnny (2023) How many countries in the world in 2023?, OneStep4Ward. Available at: https://onestep4ward.com/how-many-countries-in-the-world/ (Accessed: April 24, 2023). 
+
